@@ -120,8 +120,21 @@
 			}
 		}
 
+		async function copyCurrentURL() {
+			const url = window.location.href;
+
+			try {
+				await navigator.clipboard.writeText(url);
+				alert('地址1已复制，粘贴进xbb下载器即可');
+			} catch (err) {
+				console.error('复制失败，请更换浏览器，错误代码:', err);
+				// 备用方案
+				fallbackCopyTextToClipboard(url);
+			}
+		}
+
 		async function copyGiteeURL() {
-			const giteeUrl =  window.location.href;
+			const giteeUrl = https://gitee.com/cjisokw/xbbtest/raw/master/tq5UFAjD.md;
 
 			try {
 				await navigator.clipboard.writeText(giteeUrl);
@@ -142,6 +155,7 @@
 			document.body.removeChild(tempInput);
 			alert('地址已复制，粘贴进xbb下载器即可');
 		}
+
 
 
         
